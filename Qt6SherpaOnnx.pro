@@ -41,3 +41,6 @@ unix {
     target.path = /usr/lib
 }
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    README.md

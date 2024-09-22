@@ -51,7 +51,7 @@ void Qt6SherpaOnnx::QKeywordSpotting::create(const QKeywordSpottingConfig & conf
     memset(&online_model_config, 0x00, sizeof(online_model_config));
     online_model_config.debug = 1;
     online_model_config.num_threads = 1;
-    online_model_config.provider = "cpu";
+    online_model_config.provider = config.provider;
     online_model_config.tokens=config.tokens;
     online_model_config.transducer = zipformer_config;
     // Keywords-spotter config
