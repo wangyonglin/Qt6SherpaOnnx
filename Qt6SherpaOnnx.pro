@@ -5,6 +5,7 @@ DEFINES += QTSHERPAONNX_LIBRARY
 
 CONFIG += c++17
 
+include(version.pri)
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.

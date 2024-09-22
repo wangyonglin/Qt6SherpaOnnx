@@ -1,17 +1,26 @@
 #ifndef QKEYWORDSPOTTING_H
 #define QKEYWORDSPOTTING_H
+#include "Qt6SherpaOnnx_global.h"
 #include <QAudioFormat>
 #include <QObject>
-
 #include "sherpa-onnx/c-api/c-api.h"
+namespace Qt6SherpaOnnx {
 
-class QKeywordSpotting : public QObject
+typedef struct{
+    const char * encoder=nullptr;
+    const char * decoder=nullptr;
+    const char * joiner=nullptr;
+    const char *provider = "cpu";
+    const char * tokens=nullptr;
+    const char * keywords=nullptr;
+}QKeywordSpottingConfig;
+
+class QT6_SHERPA_ONNX_EXPORT QKeywordSpotting : public QObject
 {
     Q_OBJECT
 public:
     explicit QKeywordSpotting(QObject *parent = nullptr);
-
-    void create();
+    void create(const QKeywordSpottingConfig & config);
     void destroy();
     void spotter(const QByteArray & bytes);
     void init(const QAudioFormat &fmt);
@@ -26,5 +35,7 @@ private:
 signals:
     void refresh(const QString & keywrod);
 };
+}
+
 
 #endif // QKEYWORDSPOTTING_H
