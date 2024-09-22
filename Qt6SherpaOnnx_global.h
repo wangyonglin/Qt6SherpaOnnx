@@ -1,0 +1,12 @@
+#ifndef QTSHERPAONNX_GLOBAL_H
+#define QTSHERPAONNX_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(QTSHERPAONNX_LIBRARY)
+#define QTSHERPAONNX_EXPORT Q_DECL_EXPORT
+#else
+#define QTSHERPAONNX_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // QTSHERPAONNX_GLOBAL_H
