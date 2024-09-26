@@ -1,6 +1,6 @@
 # QtSherpaOnnx
 Based on Qt 6.7.2 (GCC 10.3.1 20210422 (Red Hat 10.3.1-1), x86_64)
-
+### https://github.com/k2-fsa/sherpa-onnx/releases/tag/kws-models
 ```c++
 qKeywordSpotting= new Qt6SherpaOnnx::QKeywordSpotting(this);
 Qt6SherpaOnnx::QKeywordSpottingConfig config;

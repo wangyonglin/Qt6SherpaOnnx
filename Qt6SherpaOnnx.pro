@@ -17,13 +17,20 @@ CONFIG(debug, debug|release){
     INCLUDEPATH +=$$PWD/include
     unix{
         contains(QT_ARCH, arm64){
-
-        }else{
-
-        LIBS += -L$$PWD/lib/linux/x86_64 \
-            -lsherpa-onnx-c-api -lsherpa-onnx-core -lkaldi-native-fbank-core -lkaldi-decoder-core -lsherpa-onnx-fst \
-            -lsherpa-onnx-fstfar -lsherpa-onnx-kaldifst-core -lssentencepiece_core -lonnxruntime -lespeak-ng -lucd \
-            -lpiper_phonemize
+        LIBS += -L$$PWD/lib/linux/aarch64 \
+        -lsherpa-onnx-c-api \
+        -lsherpa-onnx-core \
+        -lkaldi-native-fbank-core \
+        -lkaldi-decoder-core \
+        -lsherpa-onnx-fst \
+        -lsherpa-onnx-fstfar \
+        -lsherpa-onnx-kaldifst-core \
+        -lssentencepiece_core \
+        -lonnxruntime \
+        -lespeak-ng \
+        -lucd \
+        -lpiper_phonemize \
+        -lcargs
         }
     }
 }

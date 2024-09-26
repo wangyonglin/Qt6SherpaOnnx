@@ -31,13 +31,12 @@ QAudioFormat Qt6SherpaOnnx::QKeywordSpotting::defaultQAudioFormat(){
     qAudioFormat.setChannelConfig(QAudioFormat::ChannelConfigMono);
     return qAudioFormat;
 }
-void Qt6SherpaOnnx::QKeywordSpotting::init(const QAudioFormat &fmt){
+void Qt6SherpaOnnx::QKeywordSpotting::init(const QAudioFormat &fmt,const QKeywordSpottingConfig & cfg){
     sample_rate=fmt.sampleRate();
+    config=cfg;
 }
-void Qt6SherpaOnnx::QKeywordSpotting::create(const QKeywordSpottingConfig & config)
+void Qt6SherpaOnnx::QKeywordSpotting::create()
 {
-
-
 
     // Zipformer config
     SherpaOnnxOnlineTransducerModelConfig zipformer_config;
@@ -78,7 +77,7 @@ void Qt6SherpaOnnx::QKeywordSpotting::spotter(const QByteArray & bytes){
     }
     const SherpaOnnxKeywordResult *r = SherpaOnnxGetKeywordResult(keywords_spotter, stream);
     if (strlen(r->keyword)) {
-        qDebug() << "spotter:" << r->json;
+        //qDebug() << "spotter:" << r->json;
         emit refresh(QString::fromStdString(r->keyword));
     }
 

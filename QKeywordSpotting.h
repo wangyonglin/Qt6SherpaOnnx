@@ -15,20 +15,21 @@ typedef struct{
     const char * keywords=nullptr;
 }QKeywordSpottingConfig;
 
-class QT6_SHERPA_ONNX_EXPORT QKeywordSpotting : public QObject
+class QT6SHERPAONNX_EXPORT QKeywordSpotting : public QObject
 {
     Q_OBJECT
 public:
     explicit QKeywordSpotting(QObject *parent = nullptr);
-    void create(const QKeywordSpottingConfig & config);
+    void create();
     void destroy();
     void spotter(const QByteArray & bytes);
-    void init(const QAudioFormat &fmt);
+    void init(const QAudioFormat &fmt,const QKeywordSpottingConfig & config);
     void spotter(const std::vector<float> &streamfloat);
     static QAudioFormat defaultQAudioFormat();
 private:
     int32_t sample_rate;
     int32_t feature_dim=80;
+    QKeywordSpottingConfig config;
     SherpaOnnxKeywordSpotter *keywords_spotter;
     SherpaOnnxOnlineStream *stream;
     std::vector<float> convertFloatVector(const QByteArray &byteArray);
