@@ -100,7 +100,7 @@ void Qt6SherpaOnnx::QKeywordSpotting::spotter(const std::vector<float> & streamf
     SherpaOnnxDestroyKeywordResult(r);
 }
 
-void Qt6SherpaOnnx::QKeywordSpotting::destroy()
+void Qt6SherpaOnnx::QKeywordSpotting::release()
 {
     SherpaOnnxDestroyOnlineStream(stream);
     SherpaOnnxDestroyKeywordSpotter(keywords_spotter);

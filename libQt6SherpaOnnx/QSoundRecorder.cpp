@@ -89,7 +89,7 @@ void Qt6SherpaOnnx::QSoundRecorder::handleStateChanged(QAudio::State newState)
     }
 }
 
-void Qt6SherpaOnnx::QSoundRecorder::destroy(){
+void Qt6SherpaOnnx::QSoundRecorder::release(){
     if(qAudioSource){
         qAudioSource->stop();
         delete qAudioSource;

@@ -21,7 +21,7 @@ class LIBQT6SHERPAONNX_EXPORT QKeywordSpotting : public QObject
 public:
     explicit QKeywordSpotting(QObject *parent = nullptr);
     void create();
-    void destroy();
+    void release();
     void spotter(const QByteArray & bytes);
     void init(const QAudioFormat &fmt,const QKeywordSpottingConfig & config);
     void spotter(const std::vector<float> &streamfloat);

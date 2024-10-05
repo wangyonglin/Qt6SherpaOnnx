@@ -25,8 +25,8 @@ int main(int argc, char *argv[])
     a.connect(&spotting,&Qt6SherpaOnnx::QKeywordSpotting::refresh,[&](const QString & word){
         qDebug() << word;
         if(word == "法国"){
-            spotting.destroy();
-            recorder.destroy();
+            spotting.release();
+            recorder.release();
             a.exit();
         }
     });

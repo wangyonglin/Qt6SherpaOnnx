@@ -15,7 +15,7 @@ public:
     QList<QAudioDevice> getAudioDevices();
     void init(const QAudioFormat &format,const QString &description=nullptr);
     void create();
-    void destroy();
+    void release();
     QAudioFormat format();
 
 public slots:
